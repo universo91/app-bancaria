@@ -1,0 +1,23 @@
+<table class="table table-striped  table-sm table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre de cuenta</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Action</th>            
+    </tr>
+    </thead>
+    <tbody>
+        <%  accountTypes.forEach( (accountType) => { %>
+            <tr>
+                <th scope="row"><%= accountType.id %></th>
+                <td><%= accountType.name %></td>
+                <td><%= accountType.description %></td>
+                <td >
+                    <a href="/account_types/edit/<%= accountType.id %>" class="btn btn-success btn-sm">Edit</a>
+                    <a href="/account_types/delete/<%= accountType.id %>" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

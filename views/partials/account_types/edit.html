@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('../header.html') %>
+<body>
+ <%- include('../navbar.html') %>
+ <div class="container d-flex justify-content-center align-items-center vh-100">
+    <form action="/account_types/update/<%= id %>" method="POST">
+      <div class="card" style="width: 25rem;">
+        <h5 class="card-header text-center">Type account </h5>
+
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" value="<%= name %>" name="name" class="form-control" id="name" placeholder="Name">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" class="form-control id="description" cols="30" rows="2"><%= description %></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-success w-100">Update type</button>
+        </div>
+      </div>
+      <div>
+        <%- include('../footer.html') %>
+      </div>
+    </form>    
+ </div>
+ 
+</body>
+</html>

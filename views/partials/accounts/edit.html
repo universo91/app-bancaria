@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('../header.html') %>
+<body>
+ <%- include('../navbar.html') %>
+ <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card" style=" width: 25rem;">
+        <div class="card-header text-center">
+            <h5>Account</h5>
+        </div>
+        <div class="card-body">
+            <form action="/accounts/update/<%= account.id %>" method="POST">
+                <div class="mb-3">
+                    <span>Name client</span>
+                    <select name="client_id" class="form-select form-select-sm" aria-label="form-select-sm example">
+                        <option selected value="<%= clientSelect.id %>"> <%= clientSelect.first_name %> <%= clientSelect.last_name%></option>
+                        <% clientsAll.forEach( client => { %>
+                            <option value="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %> </option>
+                        <% }); %>          
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <span>Type account</span>
+                    <select name="type_id" class="form-select form-select-sm" aria-label="form-select-sm example">
+                        <option selected value="<%= typeSelect.id %>"> <%= typeSelect.name %></option>
+                        <% typesAll.forEach( type => { %>
+                            <option value="<%= type.id %>"> <%= type.name %> </option>
+                        <% }); %>          
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="account-number" class="form-label">Account number </label>
+                    <input type="text" value="<%= account.account_no%>" name="account_number" class="form-control" id="account-number" placeholder="Account number">
+                </div>
+        
+                <div class="mb-3">
+                    <label for="balance" class="form-label">Balance </label>
+                    <input type="text" value ="<%= account.balance %>" name="balance" class="form-control" id="balance" placeholder="Balance">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Update account</button>
+                </div>
+            </form>
+        </div>
+    </div> 
+ </div>
+ 
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header.html'); -%>
+<body>
+    <%- include('partials/navbar.html') %>
+    <div class="container m-5 vh-100">
+        
+         <div class="row">
+            <div class="col-md-3 d-flex align-items-start">
+                <%- include('partials/account_types/add.html') %>
+            </div>
+            <div class="col-md-9">
+                <h4>Listado de tipos de cuenta</h4>     
+                <%- include('partials/account_types/list.html') %>
+            </div>
+        </div>
+    </div>     
+</body>
+    
+</html>

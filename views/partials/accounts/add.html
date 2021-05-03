@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header text-center">
+        <h5>Account</h5>
+    </div>
+    <div class="card-body">
+        <form action="/accounts/add" method="POST">
+            <div class="mb-3">
+                <span>Name client</span>
+                <select name="client_id" class="form-select form-select-sm" aria-label="form-select-sm example">
+                    <option selected>Open this select client</option>
+                    <% clients.forEach( client => { %>
+                        <option value="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %> </option>
+                    <% }); %>          
+                </select>
+            </div>
+            <div class="mb-3">
+                <span>Type account</span>
+                <select name="type_id" class="form-select form-select-sm" aria-label="form-select-sm example">
+                    <option selected>Open this select type</option>
+                    <% accountTypes.forEach( type => { %>
+                        <option value="<%= type.id %>"> <%= type.name %> </option>
+                    <% }); %>          
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="account-number" class="form-label">Account number </label>
+                <input type="text" name="account_number" class="form-control" id="account-number" placeholder="Account number">
+            </div>
+    
+            <div class="mb-3">
+                <label for="balance" class="form-label">Balance </label>
+                <input type="text" name="balance" class="form-control" id="balance" placeholder="Balance">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary w-100">Add account</button>
+            </div>
+        </form>
+    </div>
+</div>
